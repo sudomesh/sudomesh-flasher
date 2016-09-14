@@ -1,3 +1,5 @@
+
+NOT YET WORKING! Come back later.
         
 This is a command-line utility that lets the user flash any router supported by sudo mesh. After flashing it optionally generates and prints a sticker with configuration information for the user.
 
