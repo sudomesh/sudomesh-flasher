@@ -1,0 +1,7 @@
+
+module.exports = {
+
+  printer: "/dev/usb/lp0", // remove or set to null to disable printing
+  debug: false
+
+};

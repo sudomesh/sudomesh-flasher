@@ -1,0 +1,40 @@
+{
+  "name": "sudomesh-flasher",
+  "description": "Flashes the sudo mesh firmware and",
+  "version": "0.0.0",
+  "author": {
+    "name": "Marc Juul",
+    "email": "npm@juul.io",
+    "url": "http://juul.io"
+  },
+  "main": "./index",
+  "keywords": [
+    "sudomesh",
+    "mesh",
+    "node",
+    "configure",
+    "tftp",
+    "flash",
+    "firmware",
+    "openwrt"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudomesh/sudomesh-flasher.git"
+  },
+  "dependencies": {
+    "async": "^2.0.1",
+    "minimist": "^1.2.0"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sudomesh/sudomesh-flasher/issues"
+  },
+  "homepage": "https://github.com/sudomesh/sudomesh-flasher",
+  "maintainers": [
+    {
+      "name": "Marc Juul",
+      "email": "npm@juul.io"
+    }
+  ]
+}
