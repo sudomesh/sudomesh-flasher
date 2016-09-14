@@ -3,10 +3,7 @@ var os = require('os');
 var net = require('net');
 var Netmask = require('netmask').Netmask;
 
-// Unfortunately a missing feature in the dbus node module used by
-// networkmanager makes it impossible to close the dbus connection
-// so the application must be forced closed with process.exit(0)
-var NetworkManager = require('networkmanager');
+var nm = require('./lib/network_manager');
 
 // Check if this system has an IP in the same range as the router
 // and that it's not the same as the router's IP
@@ -47,7 +44,8 @@ function numValidIPs(routerIP, cb) {
                 }
             }
         }
-        return found;
+    }
+    return found;
 }
 
 // check if this system has a specific IP
@@ -68,14 +66,29 @@ function hasExactIP(ip, cb) {
 
 }
 
-NetworkManager.connect(function(err, nm) {
-    if(err) fail(err);
 
-    nm.NetworkManager.GetVersion(function(err, Version) {
-        if(err) fail(err);
-        console.log("NetworkManager Version: "+Version);
-           
+function ipAssistant(cb) {
+    var platform = os.platform();
 
-        NetworkManager.disconnect();
-    });
-});
+    if(platform == 'linux') {
+        console.log("Looks like this is Linux system");
+        console.log("Checking if you're using Network Manager");
+        nm.check(function(err, version) {
+            if(version) {
+                console.log("Looks like you're using Network Manager version: " + version);
+            } else {
+                console.log("Looks like you're not using Network Manager. Good for you.");
+            };
+            
+        });
+        return;
+    } else if(platform = 'darwin') {
+        console.log("Looks like this is Mac OS X");
+        
+
+    }
+}
+
+
+
+ipAssistant(console.error);
